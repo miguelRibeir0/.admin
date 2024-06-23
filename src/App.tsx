@@ -1,13 +1,20 @@
-import LogIn from './Components/Log-In/LogIn';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LogIn from "./Components/Log-In/LogIn";
+import Register from "./Components/Log-In/Register";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LogIn />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+]);
 
 function App() {
-  return (
-    <>
-      <div className="w-screen h-screen flex items-center justify-center">
-        <LogIn />
-      </div>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
