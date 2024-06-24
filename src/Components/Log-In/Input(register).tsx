@@ -1,16 +1,28 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { newUser } from "./fetchrequests";
 
 const Input = () => {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="mb-5 flex flex-col gap-y-5">
-      <form>
+      <form
+        onSubmit={() => {
+          newUser(username, password);
+          navigate("/");
+        }}
+      >
         <div className="mb-10 flex flex-col gap-y-3">
           <label htmlFor="username">Username:</label>
           <input
             type="text"
             required
             id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value.replace(/\s/g, ""))}
             className="border-2 border-orange-300 p-2"
           />
           <label htmlFor="password">Password:</label>
@@ -18,6 +30,8 @@ const Input = () => {
             type="password"
             required
             id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value.replace(/\s/g, ""))}
             className="border-2 border-orange-300 p-2"
           />
         </div>
