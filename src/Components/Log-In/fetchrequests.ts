@@ -1,5 +1,7 @@
+const server = import.meta.env.VITE_SERVER;
+
 const users = async () => {
-  const ans = await fetch(`http://localhost:4242/.admin/users`, {
+  const ans = await fetch(`${server}/.admin/users`, {
     method: "GET",
     headers: {
       "content-type": "application/json",
@@ -12,7 +14,7 @@ const users = async () => {
 };
 
 const newUser = async (username: string, password: string) => {
-  const ans = await fetch(`http://localhost:4242/.admin/users/new`, {
+  const ans = await fetch(`${server}/.admin/users/new`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
