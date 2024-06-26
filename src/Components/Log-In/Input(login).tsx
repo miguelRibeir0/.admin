@@ -18,7 +18,7 @@ const Input = () => {
       for (const user of data) {
         if (user.user === username && user.password === password) {
           validUser = true;
-          navigate("/home");
+          navigate("/dashboard");
           break;
         }
       }
@@ -36,7 +36,7 @@ const Input = () => {
   }, [username]);
 
   return (
-    <div className="mb-5 flex flex-col gap-y-5">
+    <div className="mb-5 mt-8 flex flex-col gap-y-5">
       <form onSubmit={userLogIn}>
         <div className="mb-10 flex flex-col gap-y-3">
           <label htmlFor="username">Username:</label>
