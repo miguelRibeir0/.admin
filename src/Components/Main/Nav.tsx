@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Spiral as Hamburger } from "hamburger-react";
 import SideBar from "./SideBar";
 import Logo from "../Logo";
+import settings from "../../assets/settings.svg";
 
 const Nav = () => {
   const [isOpen, setOpen] = useState(false);
@@ -14,7 +15,9 @@ const Nav = () => {
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
           <Logo />
-          <span className="w-12" />
+          <div className="w-12">
+            <img src={settings} className="w-6 cursor-pointer text-xs lg:w-8" />
+          </div>
         </div>
       </nav>
       <SideBar isOpen={isOpen} />
