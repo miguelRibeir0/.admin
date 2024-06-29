@@ -53,7 +53,9 @@ const Transactions = () => {
                   olivia@example.com
                 </div>
               </TableCell>
-              <TableCell className="hidden sm:table-cell">Refund</TableCell>
+              <TableCell className="hidden text-red-500 sm:table-cell">
+                Refund
+              </TableCell>
 
               <TableCell className="hidden md:table-cell">2023-06-24</TableCell>
               <TableCell className="text-right">
@@ -112,7 +114,9 @@ const Transactions = () => {
                   olivia@example.com
                 </div>
               </TableCell>
-              <TableCell className="hidden sm:table-cell">Refund</TableCell>
+              <TableCell className="hidden text-red-500 sm:table-cell">
+                Refund
+              </TableCell>
 
               <TableCell className="hidden md:table-cell">2023-06-24</TableCell>
               <TableCell className="text-right">

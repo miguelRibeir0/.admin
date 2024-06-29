@@ -14,7 +14,7 @@ const Nav = () => {
           <div className="w-12">
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
-          <Logo />
+          <Logo color={""} />
           <div className="w-12">
             <img src={settings} className="w-6 cursor-pointer text-xs lg:w-8" />
           </div>

@@ -3,12 +3,14 @@ import Revenue from "./Dashboard/Revenue";
 import Subs from "./Dashboard/Subs";
 import Sales from "./Dashboard/Sales";
 import Transactions from "./Dashboard/Transactions";
+import PageTitle from "./PageTitle";
 
 const Home = () => {
   return (
     <div>
-      <Nav></Nav>
+      <Nav />
       <div className="h-20 w-screen" /> {/* nav filler */}
+      <PageTitle title="Dashboard" />
       <section className="m-10 flex flex-wrap justify-center gap-8">
         <div className="w-full lg:w-1/4">
           <Revenue />

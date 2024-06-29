@@ -61,11 +61,11 @@ const Input = () => {
         <input
           type="submit"
           value="Log In"
-          className="w-full cursor-pointer rounded-lg border-2 border-orange-400 bg-orange-400 p-2 text-white transition duration-200 ease-in-out hover:border-orange-300 hover:bg-orange-300"
+          className="w-full cursor-pointer rounded-lg border-2 border-orange-500 bg-orange-500 p-2 font-bold text-white transition duration-200 ease-in-out hover:border-orange-300 hover:bg-orange-400"
         />
       </form>
       <button
-        className="cursor-pointer rounded-lg border-2 border-orange-400 p-2 transition duration-200 ease-in-out hover:border-orange-400 hover:bg-orange-400 hover:text-white"
+        className="cursor-pointer rounded-lg border-2 border-orange-400 p-2 font-bold transition duration-200 ease-in-out hover:border-orange-400 hover:bg-orange-400 hover:text-white"
         onClick={() => navigate("/register")}
       >
         Register
