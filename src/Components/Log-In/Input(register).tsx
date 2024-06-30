@@ -21,7 +21,7 @@ const Input = () => {
 
     fetchUserList().then((data) => {
       for (const user of data) {
-        if (user.user === username) {
+        if (user.username === username) {
           setWarning(true);
           usernameExists = true;
           break;
