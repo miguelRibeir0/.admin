@@ -43,6 +43,9 @@ const Stock = () => {
                   className="rounded-lg border-2 border-orange-200 p-2"
                 />
                 <select className="rounded-lg border-2 border-orange-200 p-2">
+                  <option value="" disabled>
+                    Select Category
+                  </option>
                   <option value="1">Draft</option>
                   <option value="2">Active</option>
                 </select>

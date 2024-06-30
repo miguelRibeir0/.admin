@@ -31,7 +31,7 @@ const newUser = async (username: string, password: string) => {
 };
 
 interface userList {
-  user: string;
+  username: string;
   password: string;
 }
 

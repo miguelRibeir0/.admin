@@ -16,7 +16,7 @@ const Input = () => {
     // Checking if the user exists
     fetchUserList().then((data) => {
       for (const user of data) {
-        if (user.user === username && user.password === password) {
+        if (user.username === username && user.password === password) {
           validUser = true;
           navigate("/dashboard");
           break;
