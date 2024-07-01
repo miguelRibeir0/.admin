@@ -13,7 +13,7 @@ const LogIn = () => {
       <Link to={"https://github.com/miguelRibeir0/.admin"} target="_blank">
         <img
           src={github}
-          className="absolute left-1/2 top-3/4 mt-20 w-12 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer hover:opacity-80"
+          className="absolute left-1/2 top-3/4 mt-28 w-12 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer hover:opacity-80"
         />
       </Link>
     </section>
