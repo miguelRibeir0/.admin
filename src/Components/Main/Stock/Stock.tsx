@@ -6,6 +6,7 @@ import AddProduct from "./AddProduct";
 
 const Stock = () => {
   const [productForm, setProductForm] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const toggleShowAddProduct = () => setProductForm(false);
 
@@ -24,8 +25,12 @@ const Stock = () => {
               Add Product
             </button>
           </div>
-          <AddProduct show={productForm} toggleShow={toggleShowAddProduct} />
-          <Products />
+          <AddProduct
+            show={productForm}
+            toggleShow={toggleShowAddProduct}
+            submitting={setSubmitted}
+          />
+          <Products submitted={submitted} submitting={setSubmitted} />
         </div>
       </section>
     </div>

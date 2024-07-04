@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { MoreHorizontal } from "lucide-react";
 import { Badge } from "@/Components/ui/badge";
 import { Button } from "@/Components/ui/button";
@@ -30,11 +30,23 @@ import {
 import { getProducts } from "./fetchrequests";
 import ProductsLoading from "./ProductsLoading";
 
-const Products = () => {
+type ProductsProps = {
+  submitted: boolean;
+  submitting: (value: boolean) => void;
+};
+
+const Products: React.FC<ProductsProps> = ({ submitted, submitting }) => {
+  const queryClient = useQueryClient();
   const { data: product, isLoading } = useQuery({
-    queryKey: ["products"],
-    queryFn: () => getProducts(),
+    queryKey: ["products", submitted],
+    queryFn: getProducts,
   });
+
+  useEffect(() => {
+    // It allows to change submitted back to false
+    queryClient.invalidateQueries({ queryKey: ["products"] });
+    submitting(false);
+  }, [submitted, queryClient, submitting]);
 
   interface Product {
     id: number;

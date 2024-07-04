@@ -4,9 +4,14 @@ import { newProduct } from "./fetchrequests";
 type AddProductProps = {
   show: boolean;
   toggleShow: () => void;
+  submitting: (value: boolean) => void;
 };
 
-const AddProduct: React.FC<AddProductProps> = ({ show, toggleShow }) => {
+const AddProduct: React.FC<AddProductProps> = ({
+  show,
+  toggleShow,
+  submitting,
+}) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -33,6 +38,8 @@ const AddProduct: React.FC<AddProductProps> = ({ show, toggleShow }) => {
     setQuantity("");
     setStatus("");
     toggleShow();
+    // so products on Products.tsx can be refetched
+    setTimeout(() => submitting(true), 500);
   };
 
   return (
