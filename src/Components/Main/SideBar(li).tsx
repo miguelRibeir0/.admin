@@ -7,7 +7,7 @@ const Li: React.FC<{ value: string }> = ({ value }) => {
   return (
     <li className="relative flex h-20 cursor-pointer items-center justify-center gap-x-5 border-b-2 border-r-2 border-orange-500 transition-all duration-200 ease-in-out hover:bg-orange-500 hover:text-white">
       {formattedPath === formattedValue ? (
-        <div className="absolute mb-4 mr-40 animate-pulse items-center text-4xl text-orange-500">
+        <div className="absolute mb-4 mr-28 animate-pulse items-center text-4xl text-orange-500 lg:mr-40">
           .
         </div>
       ) : null}

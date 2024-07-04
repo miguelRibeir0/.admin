@@ -12,9 +12,22 @@ const AddProduct: React.FC<AddProductProps> = ({ show, toggleShow }) => {
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState("");
 
+  // Get the current date and time
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  };
+  const newDate = () => {
+    return new Date().toLocaleString("en-US", options);
+  };
+
   const productSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    newProduct(name, price, quantity, status);
+    newProduct(name, price, quantity, status, newDate());
     setName("");
     setPrice("");
     setQuantity("");

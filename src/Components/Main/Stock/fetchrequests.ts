@@ -5,6 +5,7 @@ const newProduct = async (
   price: string,
   quantity: string,
   status: string,
+  date: string,
 ) => {
   const ans = await fetch(`${server}/.admin/products/new`, {
     method: "POST",
@@ -16,6 +17,7 @@ const newProduct = async (
       price,
       quantity,
       status,
+      date,
     }),
   });
 
@@ -24,4 +26,12 @@ const newProduct = async (
   return data;
 };
 
-export { newProduct };
+const getProducts = async () => {
+  const ans = await fetch(`${server}/.admin/products`);
+
+  const data = await ans.json();
+
+  return data;
+};
+
+export { newProduct, getProducts };

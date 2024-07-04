@@ -1,7 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-
 import { MoreHorizontal } from "lucide-react";
-import { Badge } from "@/Components/ui/badge";
 import { Button } from "@/Components/ui/button";
 import {
   Card,
@@ -27,26 +24,9 @@ import {
   TableRow,
 } from "@/Components/ui/table";
 
-import { getProducts } from "./fetchrequests";
-import ProductsLoading from "./ProductsLoading";
+const rows = ["", "", ""];
 
-const Products = () => {
-  const { data: product, isLoading } = useQuery({
-    queryKey: ["products"],
-    queryFn: () => getProducts(),
-  });
-
-  interface Product {
-    id: number;
-    name: string;
-    price: number;
-    quantity: number;
-    status: string;
-    date: string;
-  }
-
-  if (isLoading) return <ProductsLoading />;
-
+const ProductsLoading = () => {
   return (
     <Card>
       <CardHeader>
@@ -73,31 +53,29 @@ const Products = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {product?.map((product: Product) => {
+            {rows.map((_, index) => {
               return (
-                <TableRow key={product.id}>
+                <TableRow key={index}>
                   <TableCell className="hidden sm:table-cell"></TableCell>
-                  <TableCell className="font-medium">{product.name}</TableCell>
+                  <TableCell className="font-medium">
+                    <div className="h-7 w-full animate-pulse rounded-lg bg-slate-200"></div>
+                  </TableCell>
                   <TableCell>
-                    {product.status === "Draft" ? (
-                      <Badge variant="secondary">{product.status}</Badge>
-                    ) : (
-                      <Badge variant="outline">{product.status}</Badge>
-                    )}
+                    <div className="h-7 w-full animate-pulse rounded-lg bg-slate-200"></div>
                   </TableCell>
-                  <TableCell>${product.price}</TableCell>
-                  <TableCell className="hidden md:table-cell">
-                    {product.quantity}
+                  <TableCell>
+                    <div className="h-7 w-full animate-pulse rounded-lg bg-slate-200"></div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="h-7 w-full animate-pulse rounded-lg bg-slate-200"></div>
                   </TableCell>
                   <TableCell className="hidden md:table-cell">
-                    {product.date}
+                    <div className="h-7 w-full animate-pulse rounded-lg bg-slate-200"></div>
                   </TableCell>
+                  <TableCell className="hidden md:table-cell"></TableCell>
                   <TableCell>
                     <DropdownMenu>
-                      <DropdownMenuTrigger
-                        asChild
-                        className="hover:bg-orange-200"
-                      >
+                      <DropdownMenuTrigger asChild>
                         <Button
                           aria-haspopup="true"
                           size="icon"
@@ -129,4 +107,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductsLoading;
