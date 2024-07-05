@@ -27,7 +27,7 @@ import {
   TableRow,
 } from "@/Components/ui/table";
 
-import { getProducts } from "./fetchrequests";
+import { getDefaultProducts, getUSerProducts } from "./fetchrequests";
 import ProductsLoading from "./ProductsLoading";
 
 type ProductsProps = {
@@ -37,14 +37,25 @@ type ProductsProps = {
 
 const Products: React.FC<ProductsProps> = ({ submitted, submitting }) => {
   const queryClient = useQueryClient();
+  const userId = Number(sessionStorage.getItem("userId"));
+  //Fetching the Default Products
   const { data: product, isLoading } = useQuery({
     queryKey: ["products", submitted],
-    queryFn: getProducts,
+    queryFn: getDefaultProducts,
+  });
+  //Fetching the User Specific Products
+  const { data: userProduct } = useQuery({
+    queryKey: ["userProducts", userId, submitted],
+    queryFn: ({ queryKey }) => {
+      const [, userId] = queryKey;
+      return getUSerProducts(Number(userId));
+    },
   });
 
   useEffect(() => {
     // It allows to change submitted back to false
     queryClient.invalidateQueries({ queryKey: ["products"] });
+    queryClient.invalidateQueries({ queryKey: ["userProducts"] });
     submitting(false);
   }, [submitted, queryClient, submitting]);
 
@@ -80,12 +91,36 @@ const Products: React.FC<ProductsProps> = ({ submitted, submitting }) => {
               <TableHead className="hidden md:table-cell">Quantity</TableHead>
               <TableHead className="hidden md:table-cell">Created at</TableHead>
               <TableHead>
+                Actions
                 <span className="sr-only">Actions</span>
               </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {product?.map((product: Product) => {
+              return (
+                <TableRow key={product.id}>
+                  <TableCell className="hidden sm:table-cell"></TableCell>
+                  <TableCell className="font-medium">{product.name}</TableCell>
+                  <TableCell>
+                    {product.status === "Draft" ? (
+                      <Badge variant="secondary">{product.status}</Badge>
+                    ) : (
+                      <Badge variant="outline">{product.status}</Badge>
+                    )}
+                  </TableCell>
+                  <TableCell>${product.price}</TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    {product.quantity}
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    {product.date}
+                  </TableCell>
+                  <TableCell></TableCell>
+                </TableRow>
+              );
+            })}
+            {userProduct?.map((product: Product) => {
               return (
                 <TableRow key={product.id}>
                   <TableCell className="hidden sm:table-cell"></TableCell>

@@ -26,7 +26,7 @@ const newProduct = async (
   return data;
 };
 
-const getProducts = async () => {
+const getDefaultProducts = async () => {
   const ans = await fetch(`${server}/.admin/products`);
 
   const data = await ans.json();
@@ -34,4 +34,29 @@ const getProducts = async () => {
   return data;
 };
 
-export { newProduct, getProducts };
+const insertUserProducts = async (userId: number | null, productId: number) => {
+  const ans = await fetch(`${server}/.admin/user-products/new`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      userId,
+      productId,
+    }),
+  });
+
+  const data = await ans.json();
+
+  return data;
+};
+
+const getUSerProducts = async (userId: number) => {
+  const ans = await fetch(`${server}/.admin/user-products/${userId}`);
+
+  const data = await ans.json();
+
+  return data;
+};
+
+export { newProduct, getDefaultProducts, insertUserProducts, getUSerProducts };

@@ -19,6 +19,7 @@ const Input = () => {
         if (user.username === username && user.password === password) {
           validUser = true;
           navigate("/dashboard");
+          sessionStorage.setItem("userId", user.id.toString());
           break;
         }
       }

@@ -18,6 +18,10 @@ const SideBar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
     }
   }, [isOpen]);
 
+  const logoutId = () => {
+    sessionStorage.removeItem("userId");
+  };
+
   return (
     <>
       <div
@@ -37,7 +41,7 @@ const SideBar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
           <Li value="Budget"></Li>
         </ul>
         <div className="mt-10 flex w-full justify-center">
-          <Link to={"/"}>
+          <Link to={"/"} onClick={logoutId}>
             <img src={logout} className="w-5 rotate-180" />
           </Link>
         </div>

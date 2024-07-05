@@ -5,6 +5,7 @@ import Sales from "./Dashboard/Sales";
 import Transactions from "./Dashboard/Transactions";
 import PageTitle from "./PageTitle";
 
+//Landing Page after login
 const Home = () => {
   return (
     <div>

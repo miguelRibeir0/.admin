@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { newProduct } from "./fetchrequests";
+import { newProduct, insertUserProducts } from "./fetchrequests";
 
 type AddProductProps = {
   show: boolean;
@@ -17,7 +17,7 @@ const AddProduct: React.FC<AddProductProps> = ({
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState("");
 
-  // Get the current date and time
+  // Getting the current date and time
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "2-digit",
@@ -29,16 +29,21 @@ const AddProduct: React.FC<AddProductProps> = ({
   const newDate = () => {
     return new Date().toLocaleString("en-US", options);
   };
+  const userId = Number(sessionStorage.getItem("userId"));
 
-  const productSubmit = (e: React.FormEvent) => {
+  const productSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    newProduct(name, price, quantity, status, newDate());
+    // Adding the product to the product table
+    const { id } = await newProduct(name, price, quantity, status, newDate());
+
+    // Adding it to the user-product table
+    insertUserProducts(userId, id);
     setName("");
     setPrice("");
     setQuantity("");
     setStatus("");
     toggleShow();
-    // so products on Products.tsx can be refetched
+    // So products on Products.tsx can be refetched
     setTimeout(() => submitting(true), 500);
   };
 
