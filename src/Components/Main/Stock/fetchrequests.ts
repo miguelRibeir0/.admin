@@ -59,4 +59,54 @@ const getUSerProducts = async (userId: number) => {
   return data;
 };
 
-export { newProduct, getDefaultProducts, insertUserProducts, getUSerProducts };
+const updateProduct = async (
+  productId: number,
+  pName: string,
+  pPrice: number,
+  pQuantity: number,
+  pStatus: string,
+) => {
+  console.log("fetching");
+  const ans = await fetch(`${server}/.admin/products/update`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      productId,
+      pName,
+      pPrice,
+      pQuantity,
+      pStatus,
+    }),
+  });
+
+  const data = await ans.json();
+
+  return data;
+};
+
+const deleteProduct = async (productId: number) => {
+  const ans = await fetch(`${server}/.admin/products/delete`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      productId,
+    }),
+  });
+
+  const data = await ans.json();
+
+  return data;
+};
+
+export {
+  newProduct,
+  getDefaultProducts,
+  insertUserProducts,
+  getUSerProducts,
+  updateProduct,
+  deleteProduct,
+};
