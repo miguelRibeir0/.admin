@@ -1,9 +1,10 @@
 import Nav from "./Nav";
 import Revenue from "./Dashboard/Revenue";
 import Subs from "./Dashboard/Subs";
-import Sales from "./Dashboard/Sales";
+import SalesNumber from "./Dashboard/Sales";
 import Transactions from "./Dashboard/Transactions";
 import PageTitle from "./PageTitle";
+import PieChartSales from "./Sales/PieChart";
 
 //Landing Page after login
 const Home = () => {
@@ -20,10 +21,13 @@ const Home = () => {
           <Subs />
         </div>
         <div className="w-full lg:w-1/4">
-          <Sales />
+          <SalesNumber />
         </div>
         <div className="w-full">
           <Transactions />
+        </div>
+        <div className="w-full">
+          <PieChartSales />
         </div>
       </section>
     </div>

@@ -2,7 +2,7 @@ import { CreditCard } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import AnimatedNumbers from "react-animated-numbers";
 
-const Sales = () => {
+const SalesNumber = () => {
   const number: number = Math.floor(Math.random() * 5000) + 500;
   const percentage: number = Math.floor(Math.random() * 100);
   const positive: boolean = Math.random() < 0.5;
@@ -35,4 +35,4 @@ const Sales = () => {
   );
 };
 
-export default Sales;
+export default SalesNumber;

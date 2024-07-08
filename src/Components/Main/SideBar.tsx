@@ -37,7 +37,9 @@ const SideBar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
           <Link to={"/stock"}>
             <Li value="Stock"></Li>
           </Link>
-          <Li value="Sales"></Li>
+          <Link to={"/sales"}>
+            <Li value="Sales"></Li>
+          </Link>
           <Li value="Budget"></Li>
         </ul>
         <div className="mt-10 flex w-full justify-center">

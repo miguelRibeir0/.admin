@@ -65,7 +65,7 @@ const Products: React.FC<ProductsProps> = ({ submitted, submitting }) => {
     queryClient.invalidateQueries({ queryKey: ["products"] });
     queryClient.invalidateQueries({ queryKey: ["userProducts"] });
     submitting(false);
-  }, [submitted, queryClient, submitting, editingProductId, deletingProductId]);
+  }, [submitted, queryClient, submitting]);
 
   interface Product {
     id: number;
@@ -80,7 +80,7 @@ const Products: React.FC<ProductsProps> = ({ submitted, submitting }) => {
 
   return (
     <>
-      <Card>
+      <Card className="border-2 border-orange-500">
         <CardHeader>
           <CardTitle>Products</CardTitle>
           <CardDescription>
@@ -192,6 +192,7 @@ const Products: React.FC<ProductsProps> = ({ submitted, submitting }) => {
                             pQuantity={product.quantity}
                             pPrice={product.price}
                             pStatus={product.status}
+                            submitting={submitting}
                           />
                         )}
                         {deletingProductId === product.id && (
@@ -199,6 +200,7 @@ const Products: React.FC<ProductsProps> = ({ submitted, submitting }) => {
                             isOpen={deletingProductId !== null}
                             setIsOpen={() => setDeletingProductId(null)}
                             productId={product.id}
+                            submitting={submitting}
                           />
                         )}
                       </DropdownMenu>
