@@ -33,11 +33,16 @@ import ProductEdit from "./ProductEdit";
 import ProductDelete from "./ProductDelete";
 
 type ProductsProps = {
-  submitted: boolean;
+  submitted: boolean | null;
   submitting: (value: boolean) => void;
+  setEdit: boolean;
 };
 
-const Products: React.FC<ProductsProps> = ({ submitted, submitting }) => {
+const Products: React.FC<ProductsProps> = ({
+  submitted,
+  submitting,
+  setEdit,
+}) => {
   const queryClient = useQueryClient();
   const userId = Number(sessionStorage.getItem("userId"));
   //Fetching the Default Products
@@ -133,81 +138,83 @@ const Products: React.FC<ProductsProps> = ({ submitted, submitting }) => {
                   </TableRow>
                 );
               })}
-              {userProduct?.map((product: Product) => {
-                return (
-                  <TableRow key={product.id}>
-                    <TableCell className="hidden sm:table-cell"></TableCell>
-                    <TableCell className="font-medium">
-                      {product.name}
-                    </TableCell>
-                    <TableCell>
-                      {product.status === "Draft" ? (
-                        <Badge variant="secondary">{product.status}</Badge>
-                      ) : (
-                        <Badge variant="outline">{product.status}</Badge>
-                      )}
-                    </TableCell>
-                    <TableCell>${product.price}</TableCell>
-                    <TableCell className="hidden md:table-cell">
-                      {product.quantity}
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell">
-                      {product.date}
-                    </TableCell>
-                    <TableCell>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          asChild
-                          className="hover:bg-orange-200"
-                        >
-                          <Button
-                            aria-haspopup="true"
-                            size="icon"
-                            variant="ghost"
-                          >
-                            <MoreHorizontal className="h-4 w-4" />
-                            <span className="sr-only">Toggle menu</span>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                          <DropdownMenuItem
-                            onClick={() => setEditingProductId(product.id)}
-                          >
-                            Edit
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => setDeletingProductId(product.id)}
-                          >
-                            Delete
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                        {/* Confirming the edit window matches the product id  */}
-                        {editingProductId === product.id && (
-                          <ProductEdit
-                            isOpen={editingProductId !== null}
-                            setIsOpen={() => setEditingProductId(null)}
-                            productId={product.id}
-                            pName={product.name}
-                            pQuantity={product.quantity}
-                            pPrice={product.price}
-                            pStatus={product.status}
-                            submitting={submitting}
-                          />
-                        )}
-                        {deletingProductId === product.id && (
-                          <ProductDelete
-                            isOpen={deletingProductId !== null}
-                            setIsOpen={() => setDeletingProductId(null)}
-                            productId={product.id}
-                            submitting={submitting}
-                          />
-                        )}
-                      </DropdownMenu>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
+              {setEdit === true
+                ? userProduct?.map((product: Product) => {
+                    return (
+                      <TableRow key={product.id}>
+                        <TableCell className="hidden sm:table-cell"></TableCell>
+                        <TableCell className="font-medium">
+                          {product.name}
+                        </TableCell>
+                        <TableCell>
+                          {product.status === "Draft" ? (
+                            <Badge variant="secondary">{product.status}</Badge>
+                          ) : (
+                            <Badge variant="outline">{product.status}</Badge>
+                          )}
+                        </TableCell>
+                        <TableCell>${product.price}</TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          {product.quantity}
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          {product.date}
+                        </TableCell>
+                        <TableCell>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger
+                              asChild
+                              className="hover:bg-orange-200"
+                            >
+                              <Button
+                                aria-haspopup="true"
+                                size="icon"
+                                variant="ghost"
+                              >
+                                <MoreHorizontal className="h-4 w-4" />
+                                <span className="sr-only">Toggle menu</span>
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                              <DropdownMenuItem
+                                onClick={() => setEditingProductId(product.id)}
+                              >
+                                Edit
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                onClick={() => setDeletingProductId(product.id)}
+                              >
+                                Delete
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                            {/* Confirming the edit window matches the product id  */}
+                            {editingProductId === product.id && (
+                              <ProductEdit
+                                isOpen={editingProductId !== null}
+                                setIsOpen={() => setEditingProductId(null)}
+                                productId={product.id}
+                                pName={product.name}
+                                pQuantity={product.quantity}
+                                pPrice={product.price}
+                                pStatus={product.status}
+                                submitting={submitting}
+                              />
+                            )}
+                            {deletingProductId === product.id && (
+                              <ProductDelete
+                                isOpen={deletingProductId !== null}
+                                setIsOpen={() => setDeletingProductId(null)}
+                                productId={product.id}
+                                submitting={submitting}
+                              />
+                            )}
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })
+                : null}
             </TableBody>
           </Table>
         </CardContent>

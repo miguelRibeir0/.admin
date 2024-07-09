@@ -30,7 +30,11 @@ const Stock = () => {
             toggleShow={toggleShowAddProduct}
             submitting={setSubmitted}
           />
-          <Products submitted={submitted} submitting={setSubmitted} />
+          <Products
+            submitted={submitted}
+            submitting={setSubmitted}
+            setEdit={true}
+          />
         </div>
       </section>
     </div>

@@ -5,6 +5,8 @@ import SalesNumber from "./Dashboard/Sales";
 import Transactions from "./Dashboard/Transactions";
 import PageTitle from "./PageTitle";
 import PieChartSales from "./Sales/PieChart";
+import RadialBudget from "./Budget/RadialBudget";
+import Products from "./Stock/Products";
 
 //Landing Page after login
 const Home = () => {
@@ -26,8 +28,14 @@ const Home = () => {
         <div className="w-full">
           <Transactions />
         </div>
-        <div className="w-full">
+        <div className="w-full lg:w-5/12">
           <PieChartSales />
+        </div>
+        <div className="w-full lg:w-5/12">
+          <RadialBudget setEdit={false} />
+        </div>
+        <div className="w-full">
+          <Products submitted={null} submitting={() => ""} setEdit={false} />
         </div>
       </section>
     </div>

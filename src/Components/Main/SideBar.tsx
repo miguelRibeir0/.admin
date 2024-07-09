@@ -40,7 +40,9 @@ const SideBar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
           <Link to={"/sales"}>
             <Li value="Sales"></Li>
           </Link>
-          <Li value="Budget"></Li>
+          <Link to={"/budget"}>
+            <Li value="Budget"></Li>
+          </Link>
         </ul>
         <div className="mt-10 flex w-full justify-center">
           <Link to={"/"} onClick={logoutId}>
