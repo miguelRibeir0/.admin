@@ -6,6 +6,7 @@ import Home from "./Components/Main/Home";
 import Stock from "./Components/Main/Stock/Stock";
 import Sales from "./Components/Main/Sales/Sales";
 import Budget from "./Components/Main/Budget/Budget";
+import Plugin from "./Components/Main/Plug-ins/Plug-ins";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/budget",
     element: <Budget />,
+  },
+  {
+    path: "/plugins",
+    element: <Plugin />,
   },
 ]);
 
