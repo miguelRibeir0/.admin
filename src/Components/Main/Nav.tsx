@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Spiral as Hamburger } from "hamburger-react";
 import SideBar from "./SideBar";
 import Logo from "../Logo";
@@ -14,9 +15,32 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/Components/ui/sheet";
+import { userInfo, userUpdate } from "../Config/fetchrequests";
 
 const Nav = () => {
   const [isOpen, setOpen] = useState(false);
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+
+  //Getting the user id
+  const userId = Number(sessionStorage.getItem("userId"));
+
+  //Fetching the username and password
+  const { data: info } = useQuery({
+    queryKey: ["info", userId],
+    queryFn: () => userInfo(userId),
+  });
+
+  //Displaying both the username and password as default values
+  useEffect(() => {
+    setUser(info?.username);
+    setPassword(info?.password);
+  }, [info]);
+
+  //DB update on submit
+  const onSubmit = async () => {
+    await userUpdate(userId, user, password);
+  };
 
   return (
     <>
@@ -49,7 +73,8 @@ const Nav = () => {
                       type="text"
                       id="user"
                       className="h-10 border-2 border-orange-500 bg-orange-50 pl-2"
-                      disabled
+                      value={user}
+                      onChange={(e) => setUser(e.target.value)}
                     />
                   </div>
                   <div className="flex flex-col gap-4">
@@ -58,7 +83,8 @@ const Nav = () => {
                       type="password"
                       id="password"
                       className="h-10 border-2 border-orange-500 bg-orange-50 pl-2"
-                      disabled
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                   <div className="flex flex-col gap-4">
@@ -74,7 +100,11 @@ const Nav = () => {
                 </div>
                 <SheetFooter className="pt-5">
                   <SheetClose asChild>
-                    <Button type="submit" className="bg-orange-500">
+                    <Button
+                      type="submit"
+                      className="bg-orange-500 hover:bg-orange-300"
+                      onClick={onSubmit}
+                    >
                       Save changes
                     </Button>
                   </SheetClose>
