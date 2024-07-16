@@ -82,7 +82,7 @@ const Nav = () => {
                   />
                 </svg>
               </SheetTrigger>
-              <SheetContent className="h-screen border-l-2 border-orange-500">
+              <SheetContent className="h-screen border-l-2 border-orange-500 dark:bg-neutral-950">
                 <SheetHeader>
                   <SheetTitle>Edit profile</SheetTitle>
                   <SheetDescription>
@@ -92,7 +92,9 @@ const Nav = () => {
                 </SheetHeader>
                 <div className="grid gap-4 py-4">
                   <div className="flex flex-col gap-4">
-                    <label htmlFor="user">User:</label>
+                    <label htmlFor="user" className="dark:text-slate-50">
+                      User:
+                    </label>
                     <input
                       type="text"
                       id="user"
@@ -102,7 +104,9 @@ const Nav = () => {
                     />
                   </div>
                   <div className="flex flex-col gap-4">
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password" className="dark:text-slate-50">
+                      Password:
+                    </label>
                     <input
                       type="password"
                       id="password"
@@ -112,7 +116,9 @@ const Nav = () => {
                     />
                   </div>
                   <div className="flex flex-col gap-4">
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email" className="dark:text-slate-50">
+                      Email:
+                    </label>
                     <input
                       type="text"
                       id="email"
@@ -134,7 +140,7 @@ const Nav = () => {
                   </SheetClose>
                 </SheetFooter>
                 <div
-                  className={`absolute left-1/2 top-[85%] ${theme ? "w-11" : "w-8"} -translate-x-1/2 transform cursor-pointer lg:top-[90%]`}
+                  className={`absolute left-1/2 top-[82%] ${theme ? "w-11" : "w-8"} -translate-x-1/2 transform cursor-pointer lg:top-[90%]`}
                   onClick={() => setTheme(!theme)}
                 >
                   {theme ? (
