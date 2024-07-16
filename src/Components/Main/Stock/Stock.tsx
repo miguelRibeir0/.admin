@@ -19,7 +19,7 @@ const Stock = () => {
         <div className="w-full">
           <div className="mb-10 flex gap-x-5 text-sm">
             <button
-              className="rounded-lg border-2 border-orange-500 p-3 font-bold transition-all duration-300 ease-in-out hover:bg-orange-500 hover:text-white"
+              className="rounded-lg border-2 border-orange-500 p-3 font-bold transition-all duration-300 ease-in-out hover:bg-orange-500 hover:text-white dark:bg-orange-500 dark:text-slate-50 dark:hover:bg-orange-400"
               onClick={() => setProductForm(!productForm)}
             >
               Add Product

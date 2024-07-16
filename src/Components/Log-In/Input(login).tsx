@@ -20,6 +20,7 @@ const Input = () => {
           validUser = true;
           navigate("/dashboard");
           sessionStorage.setItem("userId", user.id.toString());
+          sessionStorage.setItem("theme", "false");
           break;
         }
       }

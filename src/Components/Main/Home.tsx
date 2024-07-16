@@ -15,7 +15,7 @@ const Home = () => {
       <Nav />
       <div className="h-20 w-screen" /> {/* nav filler */}
       <PageTitle title="Dashboard" />
-      <section className="m-10 flex flex-wrap justify-center gap-8">
+      <section className="m-10 flex flex-wrap justify-center gap-8 lg:gap-y-20">
         <div className="w-full lg:w-1/4">
           <Revenue />
         </div>
@@ -25,7 +25,7 @@ const Home = () => {
         <div className="w-full lg:w-1/4">
           <SalesNumber />
         </div>
-        <div className="w-full">
+        <div className="w-full lg:w-11/12">
           <Transactions />
         </div>
         <div className="w-full lg:w-5/12">
@@ -34,7 +34,7 @@ const Home = () => {
         <div className="w-full lg:w-5/12">
           <RadialBudget setEdit={false} />
         </div>
-        <div className="w-full">
+        <div className="w-full lg:w-11/12">
           <Products submitted={null} submitting={() => ""} setEdit={false} />
         </div>
       </section>

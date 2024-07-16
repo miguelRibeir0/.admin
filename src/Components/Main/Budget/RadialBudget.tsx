@@ -88,14 +88,14 @@ const RadialBudget: React.FC<RadialBudgetProps> = ({ setEdit }) => {
                         <tspan
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-3xl font-bold"
+                          className="fill-foreground text-3xl font-bold dark:fill-slate-50"
                         >
                           {spent.toLocaleString() + "$"}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
+                          className="fill-muted-foreground dark:fill-slate-50"
                         >
                           Spent
                         </tspan>
@@ -125,7 +125,7 @@ const RadialBudget: React.FC<RadialBudgetProps> = ({ setEdit }) => {
                 <label>New Budget :</label>
                 <input
                   type="number"
-                  className="w-24 border-2 border-orange-500 pl-1"
+                  className="w-24 border-2 border-orange-500 pl-1 dark:border-gray-100 dark:border-opacity-50 dark:bg-neutral-950"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   min={0}

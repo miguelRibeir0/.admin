@@ -31,7 +31,7 @@ const chartConfig = {
   },
   mobile: {
     label: "Subscriptions",
-    color: "hsl(var(--chart-2))",
+    color: "#18181b",
   },
 } satisfies ChartConfig;
 

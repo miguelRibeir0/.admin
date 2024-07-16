@@ -116,7 +116,7 @@ const chartConfig = {
   },
   conversions: {
     label: "Conversions",
-    color: "#431407",
+    color: "#fbbf24",
   },
 } satisfies ChartConfig;
 

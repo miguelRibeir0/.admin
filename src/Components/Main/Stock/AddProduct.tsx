@@ -50,13 +50,13 @@ const AddProduct: React.FC<AddProductProps> = ({
   return (
     <>
       {show ? (
-        <div className="mb-10 rounded-lg bg-white p-5 shadow-md">
+        <div className="mb-10 rounded-lg border-2 border-orange-500 bg-white p-5 shadow-md dark:border-gray-100 dark:border-opacity-50 dark:bg-neutral-950 dark:text-slate-50">
           <h1 className="mb-5 text-2xl font-bold">Add Product</h1>
           <form className="flex flex-col gap-5" onSubmit={productSubmit}>
             <input
               type="text"
               placeholder="Product Name"
-              className="rounded-lg border-2 border-orange-200 p-2"
+              className="rounded-lg border-2 border-orange-200 p-2 dark:border-gray-100 dark:border-opacity-50 dark:bg-neutral-950 dark:text-slate-50"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -64,7 +64,7 @@ const AddProduct: React.FC<AddProductProps> = ({
             <input
               type="text"
               placeholder="Product Price €  ( max: 999.99€ )"
-              className="rounded-lg border-2 border-orange-200 p-2"
+              className="rounded-lg border-2 border-orange-200 p-2 dark:border-gray-100 dark:border-opacity-50 dark:bg-neutral-950 dark:text-slate-50"
               value={price}
               onChange={(e) => {
                 // Allow up to 3 digits before the decimal and up to 2 digits after the decimal
@@ -78,7 +78,7 @@ const AddProduct: React.FC<AddProductProps> = ({
             <input
               type="text"
               placeholder="Product Quantity ( max: 1000 )"
-              className="rounded-lg border-2 border-orange-200 p-2"
+              className="rounded-lg border-2 border-orange-200 p-2 dark:border-gray-100 dark:border-opacity-50 dark:bg-neutral-950 dark:text-slate-50"
               value={quantity}
               onChange={(e) => {
                 const value = e.target.value;
@@ -91,7 +91,7 @@ const AddProduct: React.FC<AddProductProps> = ({
               required
             />
             <select
-              className="rounded-lg border-2 border-orange-200 p-2"
+              className="rounded-lg border-2 border-orange-200 p-2 dark:border-gray-100 dark:border-opacity-50 dark:bg-neutral-950 dark:text-slate-50"
               value={status}
               onChange={(e) => setStatus(e.target.value)}
               required
@@ -104,7 +104,7 @@ const AddProduct: React.FC<AddProductProps> = ({
             </select>
             <button
               type="submit"
-              className="rounded-lg bg-orange-500 p-2 font-bold text-white transition-all duration-300 ease-in-out hover:bg-orange-400"
+              className="mt-3 rounded-lg bg-orange-500 p-2 font-bold text-white transition-all duration-300 ease-in-out hover:bg-orange-400"
             >
               Add Product
             </button>

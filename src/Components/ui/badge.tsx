@@ -14,7 +14,8 @@ const badgeVariants = cva(
           "border-orange-500 text-slate-900  dark:bg-slate-800 dark:text-slate-50",
         destructive:
           "border-orange-500 bg-red-500 text-slate-50 hover:bg-red-500/80 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/80",
-        outline: "border-orange-500 bg-orange-200 dark:text-slate-50",
+        outline:
+          "border-orange-500 bg-orange-200 dark:text-white dark:bg-orange-500",
       },
     },
     defaultVariants: {

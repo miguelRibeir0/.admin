@@ -90,14 +90,14 @@ const PieChartSales = () => {
                         <tspan
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-3xl font-bold"
+                          className="fill-foreground text-3xl font-bold dark:fill-slate-50"
                         >
                           {totalSales.toLocaleString()}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
+                          className="fill-muted-foreground dark:fill-slate-50"
                         >
                           Sales
                         </tspan>

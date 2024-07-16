@@ -33,7 +33,7 @@ const ProductDelete: React.FC<DeleteProductProps> = ({
         className={`fixed left-0 top-0 ${zIndex} h-screen w-full bg-black bg-opacity-50 transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`}
         onClick={() => setIsOpen(false)}
       />
-      <div className="fixed left-1/2 top-1/2 z-30 flex w-3/4 -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center gap-y-5 border-2 border-orange-500 bg-white pb-10 pt-10 lg:w-2/5 lg:pb-16 lg:pt-16">
+      <div className="fixed left-1/2 top-1/2 z-30 flex w-3/4 -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center gap-y-5 border-2 border-orange-500 bg-white pb-10 pt-10 lg:w-2/5 lg:pb-16 lg:pt-16 dark:border-gray-100 dark:border-opacity-50 dark:bg-neutral-950 dark:text-slate-50">
         <h3 className="mb-5 w-3/4 text-center text-2xl font-bold">
           Are you sure you want to delete this product?
         </h3>

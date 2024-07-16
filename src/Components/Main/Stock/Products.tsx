@@ -85,7 +85,7 @@ const Products: React.FC<ProductsProps> = ({
 
   return (
     <>
-      <Card className="border-2 border-orange-500">
+      <Card>
         <CardHeader>
           <CardTitle>Products</CardTitle>
           <CardDescription>
