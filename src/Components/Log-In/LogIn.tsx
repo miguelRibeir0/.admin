@@ -13,7 +13,7 @@ const LogIn = () => {
     }
   }, []);
   return (
-    <section className="relative flex h-screen w-screen items-center justify-center gap-y-3 overflow-y-hidden bg-white">
+    <section className="relative flex h-screen w-screen items-center justify-center gap-y-3 overflow-y-hidden">
       <div className="w-4/5 rounded-md border-orange-500 bg-white p-6 shadow-md outline-black lg:w-2/4 2xl:w-1/4">
         <Logo color="" />
         <Input />

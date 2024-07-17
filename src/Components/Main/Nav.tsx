@@ -17,6 +17,7 @@ import {
 import { userInfo, userUpdate } from "../Config/fetchrequests";
 
 const Nav = () => {
+  // hamburger menu flag
   const [isOpen, setOpen] = useState(false);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");

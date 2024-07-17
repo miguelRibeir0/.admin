@@ -18,9 +18,10 @@ const Input = () => {
       for (const user of data) {
         if (user.username === username && user.password === password) {
           validUser = true;
-          navigate("/dashboard");
+          // Storing the user id in session storage
           sessionStorage.setItem("userId", user.id.toString());
           sessionStorage.setItem("theme", "false");
+          navigate("/dashboard");
           break;
         }
       }

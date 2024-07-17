@@ -6,7 +6,7 @@ const SideBar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
   const [zIndex, setZIndex] = useState("z-10");
   const [theme, setTheme] = useState(false);
 
-  // removing the invisible overlay box
+  // Removing the invisible overlay box
   useEffect(() => {
     if (!isOpen) {
       // set z-index to -z-10 after the bar is closed

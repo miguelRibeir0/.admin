@@ -8,7 +8,7 @@ const Plugin = () => {
       <Nav />
       <div className="h-20 w-screen" /> {/* nav filler */}
       <PageTitle title="Plugins" />
-      <p className="m-10 w-3/4">
+      <p className="m-10 w-3/4 dark:text-slate-50">
         Connect our plugins to your app to enhance our data and your experience.
       </p>
       <section className="m-10 mt-16 flex flex-wrap justify-center gap-8">

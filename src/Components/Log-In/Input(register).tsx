@@ -16,12 +16,13 @@ const Input = () => {
     e.preventDefault();
     // breaking if its already being registered
     if (registered) return;
-    setRegistered(true);
     // flag for username checking
+    setRegistered(true);
 
     fetchUserList().then((data) => {
       for (const user of data) {
         if (user.username === username) {
+          // looking for matching usernames
           setWarning(true);
           usernameExists = true;
           break;
