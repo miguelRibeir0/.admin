@@ -11,6 +11,9 @@ const LogIn = () => {
     if (rootDiv) {
       rootDiv.classList.remove("pb-10");
     }
+    //clearing previous ids and themes
+    sessionStorage.clear();
+    document.body.classList.remove("dark");
   }, []);
   return (
     <section className="relative flex h-screen w-screen items-center justify-center gap-y-3 overflow-y-hidden">
